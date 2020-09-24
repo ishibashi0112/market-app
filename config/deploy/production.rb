@@ -1,1 +1,1 @@
-server '52.193.96.158', user: 'ec2-user', roles: %w{app db web}
+server '54.150.48.164', user: 'ec2-user', roles: %w{app db web}
