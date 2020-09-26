@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load', function(){
+$(function(){
 
 
   $('#price').on('input', function() {
@@ -17,5 +17,4 @@ $(document).on('turbolinks:load', function(){
   });
   
 
-})
-
+});
