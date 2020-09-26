@@ -21,6 +21,7 @@ class CardsController < ApplicationController
   end
 
   def create
+
     customer = Payjp::Customer.create(
       card: params[:card_token],
       metadata: {user_id: current_user.id}
@@ -32,6 +33,7 @@ class CardsController < ApplicationController
     )
     if @card.save
       redirect_to cards_path(url: params[:url]), notice: 'カード情報を登録しました'
+      # redirect_to params[:url], notice: 'カード情報を登録しました'
     else
       render :new
     end
@@ -70,6 +72,7 @@ class CardsController < ApplicationController
   end
 
   def change_default_card
+    binding.pry
     card_id = Card.find(params[:cards_table_id]) 
     customer = Payjp::Customer.retrieve(@card.customer_id) 
     customer.default_card = card_id.card_id

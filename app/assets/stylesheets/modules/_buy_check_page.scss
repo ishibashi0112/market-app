@@ -62,9 +62,10 @@
   }
   &__card{
     width: 600px;
-    height: 200px;
+    height: 220px;
     padding: 0 20px;
     margin: 0 auto;
+    border-bottom:rgb(201, 197, 197) solid 1px;
     &--title{
       padding: 20px 0;
       h2{
@@ -75,11 +76,6 @@
     &--data{
       display: flex;
       justify-content: space-between;
-      padding-bottom: 20px;
-      border-bottom:rgb(201, 197, 197) solid 1px;
-      .cardData{
-
-      }
       .cardChange{
         a{
           text-decoration: none;
@@ -93,7 +89,6 @@
     height: 200px;
     padding: 20px 20px;
     margin: 0 auto;
-    margin-top: 20px;
     border-bottom:rgb(201, 197, 197) solid 1px;
     &--title{
       padding-bottom: 20px;

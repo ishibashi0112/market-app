@@ -60,8 +60,12 @@ class ItemsController < ApplicationController
 #   購入機能--------------------------------------------------------------------
   def buy_check_page
     @item = Item.find(params[:id])
-    @customer = Payjp::Customer.retrieve(@card.customer_id) 
-    @default_card = @customer.cards.retrieve(@customer.default_card)
+    if @card.present?
+      @customer = Payjp::Customer.retrieve(@card.customer_id) 
+      @default_card = @customer.cards.retrieve(@customer.default_card)
+    else
+      
+    end
   end
 
   def pay

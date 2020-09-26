@@ -20,12 +20,17 @@
     .buyCheckPage__card--title
       %h2 支払い方法      
     .buyCheckPage__card--data
-      .cardData
-  
-        = render partial: "cards/card_data", locals:{card: @default_card}
+      - if @card.present?
+        .cardData
+    
+          = render partial: "cards/card_data", locals:{card: @default_card}
 
-      .cardChange
-        = link_to "変更する  >", cards_path
+        .cardChange
+          = link_to "変更する  >", cards_path
+      - else
+        .cardData
+        .cardChange
+          = link_to "カードを設定する  >", new_card_path(back_url: request.fullpath)
   .buyCheckPage__deliverAddress
     .buyCheckPage__deliverAddress--title
       %h2 配送先
