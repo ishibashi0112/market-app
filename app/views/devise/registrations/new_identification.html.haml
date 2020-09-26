@@ -1,0 +1,30 @@
+= render 'items/header_sub'
+.userMain
+  .userForm
+    = form_for @identification do |f|
+      .userForm__header
+        %h1
+          本人確認情報
+      .userForm__group
+        .userForm__group--label
+          = f.label("お名前（全角）", class: 'label')
+          %span.indispensable
+            必須
+        = f.text_field :family_name_kanji ,placeholder: "例）山田", autofocus: true,class: 'userForm__group--input'
+        = f.text_field :first_name_kanji ,placeholder: "例）陸太郎", autofocus: true, class: 'userForm__group--input'
+      .userForm__group
+        .userForm__group--label
+          = f.label('お名前カナ(全角)', class: 'label')
+          %span.indispensable
+            必須
+        = f.text_field :family_name_kana,placeholder: "例）ヤマダ", class: 'userForm__group--input'
+        = f.text_field :first_name_kana,placeholder: "例）リクタロウ", class: 'userForm__group--input'
+      .userForm__group
+        .userForm__group--label
+          = f.label("誕生日", class: 'label')
+          %span.indispensable
+            必須
+        = f.date_field :birthday,class: 'userForm__group--input'
+      .userForm__btn
+        = f.submit "次へ", class: 'userForm__btn--red'
+= render 'items/footer_sub'

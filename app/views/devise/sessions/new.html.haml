@@ -1,0 +1,22 @@
+= render 'items/header_sub'
+.userMain
+  .userForm
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      .userForm__header
+        %h1
+          会員情報入力
+      .userForm__group
+        .userForm__group--label
+          = f.label :email,'メールアドレス', class: 'label'
+          %span.indispensable
+            必須
+        = f.email_field :email,placeholder: "PC・携帯どちらでも可", autofocus: true, class: 'userForm__group--input'
+      .userForm__group
+        .userForm__group--label
+          = f.label :password,'パスワード', class: 'label'
+          %span.indispensable
+            必須
+        = f.password_field :password, autocomplete: "off", class: 'userForm__group--input'
+      .userForm__btn
+        = f.submit "ログイン", class: 'userForm__btn--red'
+= render 'items/footer_sub'

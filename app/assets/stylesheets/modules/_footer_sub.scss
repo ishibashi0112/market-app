@@ -1,0 +1,22 @@
+.footerContents{
+  padding-top: 25px;
+  height: 200px;
+  background-color: #F5F5F5;
+  text-align: center;
+  &__top{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 25px;
+    &--cell{
+      font-size: 12px;
+      margin: 0 10px;
+    }
+  }
+  &__logo{
+    &--cell{
+      font-size: 10px;
+      text-align: center;
+    }
+  }
+
+}

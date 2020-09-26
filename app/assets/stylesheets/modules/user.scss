@@ -1,0 +1,94 @@
+.userMain {
+  background-color: #F5F5F5;
+  .userForm {
+    background-color: #FFFFFF;
+    width: 400px;
+    margin: 0 auto;
+    padding-bottom: 70px;
+    &__header {
+      height: 120px;
+      h1 {
+        font-size: 22px;
+        font-weight: bold;
+        width: 400px;
+        height: 100px;
+        text-align: center;
+        line-height: 100px;
+        border: solid 1px #F5F5F5;
+      }
+    }
+    &__group {
+      width: 50%;
+      margin: 0 auto;
+      padding-top: 20px;
+      p {
+        text-align: center;
+      }
+      &--label {
+        height: 24px;
+        .label{
+          font-size: 14px;
+          font-weight: bold;
+        }
+        .indispensable {
+          background: #ea352d;
+          border-radius: 2px;
+          color: #ffffff;
+          font-size: 12px;
+          font-weight: bold;
+          padding: 3px;
+          margin-left: 8px;
+        }
+        .arbitrary {
+          background: #cccccc;
+          border-radius: 2px;
+          color: #ffffff;
+          font-size: 12px;
+          font-weight: bold;
+          padding: 3px;
+          margin-left: 8px;
+        }
+      }
+      &--input {
+        width: 100%;
+        margin-top: 5px;
+        height: 48px;
+        padding: 10px 16px 8px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        background: #ffffff;
+        font-size: 16px;
+      }
+    }
+    &__btn {
+      margin: 0 auto;
+      margin-top: 50px;
+      text-align: center;
+      &--red {
+        width: 200px;
+        height: 50px;
+        background: #ea352d;
+        border: solid 1px #ea352d;
+        color: #ffffff;
+        font-size: 14px;
+        line-height: 50px;
+        display: block;
+        margin: 0 auto;
+      }
+      &--bluegreen {
+        width: 200px;
+        height: 50px;
+        background: #3CCACE;
+        border: solid 1px #3CCACE;
+        border-radius: 4px;
+        color: #ffffff;
+        font-size: 14px;
+        font-weight: bold;
+        line-height: 50px;
+        display: block;
+        margin: 0 auto;
+        text-decoration: none;
+      }
+    }
+  }
+}
