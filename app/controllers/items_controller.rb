@@ -36,10 +36,12 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    @parents = Category.where(ancestry:nil)
     # impressionist(@item)
     # , nil, :unique => [:session_hash]
     # @page_views = @item.impressionist_count
   end
+
   
   def edit
   end
@@ -118,11 +120,6 @@ class ItemsController < ApplicationController
       @category_parent_name_id = [parent.name, parent.id]
       @category_parent_array << @category_parent_name_id
     end
-  end
-
-  def show
-    @item = Item.find(params[:id])
-    @parents = Category.where(ancestry:nil)
   end
 
 end
