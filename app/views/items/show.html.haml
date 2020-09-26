@@ -61,7 +61,30 @@
           .main_contents_label
             カテゴリー
           .main_contents_info
-            = @item.category_id
+            -# 親要素だけの場合
+            -@parents.each do |parent|
+              -if @item.category_id == parent.id
+                %p
+                  = parent.name
+              -# 子要素までの場合
+              -parent.children.each do |child|
+                -if @item.category_id == child.id
+                  %p
+                    = parent.name
+                  %p
+                    >
+                    = child.name
+                -# 孫要素までの場合
+                -child.children.each do |grandchild|
+                  -if @item.category_id == grandchild.id
+                    %p
+                      = parent.name
+                    %p
+                      >
+                      = child.name
+                    %p
+                      >
+                      = grandchild.name
         .main_contents_info_box_shipping_payer
           .main_contents_label
             送料
