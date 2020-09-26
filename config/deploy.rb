@@ -2,7 +2,7 @@
 lock "~> 3.14.1"
 
 set :application, "market-app"
-set :repo_url, "git@github.com:takahashi-masato/market-app.git"
+set :repo_url, "git@github.com:ma2-ra/market-app.git"
 
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
 
@@ -11,7 +11,7 @@ set :rbenv_ruby, '2.5.1'
 
 # chat-spaceで使ったpemを指定
 set :ssh_options, auth_methods: ['publickey'],
-                  keys: ['~/.ssh/chat-space.pem']
+                  keys: ['~/.ssh/ChatSpace.pem']
 
 set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
 set :unicorn_config_path, -> { "#{current_path}/config/unicorn.rb" }
