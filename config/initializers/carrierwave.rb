@@ -14,7 +14,7 @@ CarrierWave.configure do |config|
       aws_secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],
       region: 'ap-northeast-1'
     }
-    config.fog_directory  = 'market-app'
-    config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/market-app'
+    config.fog_directory  = 'market-app2020'
+    config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/market-app2020'
   end
 end
