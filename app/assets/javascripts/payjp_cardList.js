@@ -12,13 +12,14 @@ $(function(){
       url:"/cards/id:"+cards_table_id+"/cards",
       type: "PATCH",
       data:{cards_table_id },
-      dataType: "html"
+      dataType: "json"
     })
     .done(function(){
       location.reload();
     })
     .fail(function(){
       alert("失敗しました")
+      location.reload();
     })
   });
 });
