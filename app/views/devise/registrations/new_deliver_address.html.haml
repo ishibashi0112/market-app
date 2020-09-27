@@ -52,8 +52,8 @@
       .userForm__group
         .userForm__group--label
           = f.label :telephone,'電話番号',placeholder: "例）09012345678", class: 'label'
-          %span.arbitrary
-            任意
+          %span.indispensable
+            必須
         = f.text_field :telephone, class: 'userForm__group--input'
       .userForm__btn
         = f.submit "登録完了", class: 'userForm__btn--red'
