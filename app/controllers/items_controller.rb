@@ -44,6 +44,23 @@ class ItemsController < ApplicationController
 
   
   def edit
+    @item = Item.find(params[:id])
+    @parents = Category.where(ancestry:nil)
+    @parent_id = Category.find(@item.category_id).parent.parent.id
+    @child_id = Category.find(@item.category_id).parent.id
+    @grandchild_id = Category.find(@item.category_id).id
+    children = Category.find(@item.category_id).parent.siblings
+    grandchildren = Category.find(@item.category_id).siblings
+    @category_child_array = []
+    @category_grandchild_array = []
+    children.each do |child|
+      @category_child_name_id = [child.name, child.id]
+      @category_child_array << @category_child_name_id
+    end
+    grandchildren.each do |grandchild|
+      @category_grandchild_name_id = [grandchild.name, grandchild.id]
+      @category_grandchild_array << @category_grandchild_name_id
+    end
   end
 
   def update
