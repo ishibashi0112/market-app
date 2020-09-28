@@ -61,6 +61,7 @@ class ItemsController < ApplicationController
       @category_grandchild_name_id = [grandchild.name, grandchild.id]
       @category_grandchild_array << @category_grandchild_name_id
     end
+    @image = Image.where(item_id:params[:id])
   end
 
   def update

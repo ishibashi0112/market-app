@@ -20,6 +20,17 @@
           .image_box_input
             .post__drop__box__container
               .prev-content
+                -@image.each_with_index do |img, i|
+                  .preview-box{id: "preview-box__#{i}"}
+                    .upper-box
+                      %img{src: img.image.url, alt: 'preview'}
+                    .lower-box
+                      .update-box
+                        %label.edit_btn
+                          編集
+                      .delete-box{id: "delete_btn_#{i}"}
+                        %span
+                          削除
               .label-content
                 %label{for: "item_images_attributes_0_image", class: "label-box", id: "label-box--0"}
                   %pre.label-box__text-visible クリックしてファイルをアップロード
