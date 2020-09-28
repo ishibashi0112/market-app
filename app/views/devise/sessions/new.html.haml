@@ -19,4 +19,10 @@
         = f.password_field :password, autocomplete: "off", class: 'userForm__group--input'
       .userForm__btn
         = f.submit "ログイン", class: 'userForm__btn--red'
+      .userForm__btn
+        .userForm__btn--facebook
+          = link_to '        Facebookでログイン', user_facebook_omniauth_authorize_path, method: :post, class: 'fab fa-facebook-square'
+      .userForm__btn
+        .userForm__btn--google
+          = link_to '        Googleでログイン', user_google_oauth2_omniauth_authorize_path, method: :post, class: 'fab fa-google'
 = render 'items/footer_sub'
