@@ -49,6 +49,13 @@ describe User do
       expect(another_user.errors[:email]).to include("はすでに存在します")
     end
 
+    it "facebookで登録をした場合パスワードが必要でないこと" do
+      user = create(:sns_credential)
+      expect(user).to be_valid
+    end
+
   end
 end
+
+
 

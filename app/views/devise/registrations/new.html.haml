@@ -6,6 +6,13 @@
         %h1
           会員情報入力
       .userForm__group
+        .btn-default
+          .btn-default--facebook
+            = link_to '        Facebookで登録', user_facebook_omniauth_authorize_path, method: :post, class: 'fab fa-facebook-square'
+        .btn-default
+          .btn-default--google
+            = link_to '        Googleで登録', user_google_oauth2_omniauth_authorize_path, method: :post, class: 'fab fa-google'
+      .userForm__group
         .userForm__group--label
           = f.label :nickname,'ニックネーム',class: 'label'
           %span.indispensable
@@ -17,18 +24,21 @@
           %span.indispensable
             必須
         = f.email_field :email,placeholder: "PC・携帯どちらでも可", autofocus: true, class: 'userForm__group--input'
-      .userForm__group
-        .userForm__group--label
-          = f.label :password,'パスワード', class: 'label'
-          %span.indispensable
-            必須
-        = f.password_field :password, autocomplete: "off", class: 'userForm__group--input'
-      .userForm__group
-        .userForm__group--label
-          = f.label :password_confirmation,'パスワード(確認)', class: 'label'
-          %span.indispensable
-            必須
-        = f.password_field :password_confirmation, autocomplete: "off", class: 'userForm__group--input'
+      - if @sns_id.present?
+        = hidden_field_tag :sns_auth, true
+      - else
+        .userForm__group
+          .userForm__group--label
+            = f.label :password,'パスワード', class: 'label'
+            %span.indispensable
+              必須
+          = f.password_field :password, autocomplete: "new-password", class: 'userForm__group--input'
+        .userForm__group
+          .userForm__group--label
+            = f.label :password_confirmation,'パスワード(確認)', class: 'label'
+            %span.indispensable
+              必須
+          = f.password_field :password_confirmation, autocomplete: "new-password", class: 'userForm__group--input'
       .userForm__btn
         = f.submit "次へ", class: 'userForm__btn--red'
 = render 'items/footer_sub'
