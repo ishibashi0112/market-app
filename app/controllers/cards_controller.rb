@@ -77,13 +77,9 @@ class CardsController < ApplicationController
     customer.default_card = card_id.card_id
     respond_to do |format|
       if customer.save
-        format.json {redirect_to URI(request.referer).path , notice: 'カードの変更が完了しました'}
-        # if URI(request.referer).path == "/cards"
-        #   format.html {redirect_to cards_path , notice: 'カードの変更が完了しました'}
-        # else
-        #   format.html {redirect_to items_item_path(URI(request.referer).path.gsub(/[^\d]/, "").to_i),  notice: 'カードの変更が完了しました'}
-        # end
+        format.html {redirect_to params[:back_url] }
       else
+        binding.pry
         render :index
       end
     end

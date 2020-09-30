@@ -3,7 +3,7 @@
     = form_with url:cards_path ,local: true, id:"default_card_changeForm" do |f|
       - cards.zip(cards_id).each do |card, id|
         = render partial: 'cards/delete_modal',locals:{id: id}
-        .cardList__data{data:{id: id.id }}
+        .cardList__data{data:{id: id.id , back_url: back_url }}
           .cardList__data--checkbox            
             - if card.id == @customer.default_card
               = f.check_box :card_id ,{checked: true} ,"true"
