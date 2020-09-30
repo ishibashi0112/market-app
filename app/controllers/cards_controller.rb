@@ -1,5 +1,6 @@
 class CardsController < ApplicationController
   require 'payjp'
+  skip_before_action :verify_authenticity_token
   before_action :set_api_key, only:[:index,:create,:destroy,:add_card,:change_default_card]
   before_action :set_card_table_id, only:[:index,:new,:add_card,:change_default_card]
   
@@ -32,6 +33,7 @@ class CardsController < ApplicationController
     )
     if @card.save
       redirect_to cards_path(url: params[:url]), notice: 'カード情報を登録しました'
+      # redirect_to params[:url], notice: 'カード情報を登録しました'
     else
       render :new
     end
@@ -75,12 +77,9 @@ class CardsController < ApplicationController
     customer.default_card = card_id.card_id
     respond_to do |format|
       if customer.save
-        if URI(request.referer).path == "/cards"
-          format.html {redirect_to cards_path , notice: 'カードの変更が完了しました'}
-        else
-          format.html {redirect_to items_item_path(URI(request.referer).path.gsub(/[^\d]/, "").to_i),  notice: 'カードの変更が完了しました'}
-        end
+        format.html {redirect_to params[:back_url] }
       else
+        binding.pry
         render :index
       end
     end
