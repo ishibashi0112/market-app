@@ -1,0 +1,29 @@
+= render 'header'
+.newItemList
+  .newItemList__title
+    = link_to "出品された商品一覧", root_path,  class:"newListLink"  
+  .newItemList__products
+    - if @selling_id.present?
+      - @items.each do |item| 
+        - if item.seller_id == current_user.id
+          = link_to item_path(item.id) ,  class: "newItemList__products--data" do
+            .dataImage
+              - item.images.first(1).each do |item_image|
+                = image_tag item_image.image.url  ,width: "100%",height:"80%"
+              - if item.buy_status == 1
+                .sold_out_image 
+                .sold_out_text SOLD
+            .dataInfo
+              .dataInfo--name
+                = item.name
+              .dataInfo--price
+                = "#{item.price}円"
+                %p (税込) 
+    - else
+      .mypage-main-none
+        %p 現在、出品済みの商品はございません。 
+= paginate(@items)
+
+
+  
+ 
