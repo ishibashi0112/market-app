@@ -3,8 +3,8 @@
   .newItemList__title
     = link_to "出品された商品一覧", root_path,  class:"newListLink"  
   .newItemList__products
-    - if @selling_id.present?
-      - @items.each do |item| 
+    - if @selling_items.present?
+      - @selling_items.each do |item| 
         - if item.seller_id == current_user.id
           = link_to item_path(item.id) ,  class: "newItemList__products--data" do
             .dataImage

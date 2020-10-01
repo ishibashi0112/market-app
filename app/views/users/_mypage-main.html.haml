@@ -5,8 +5,8 @@
     .mypage-main-moreBtn
       = link_to "もっと見る >", index_seller_page_user_path ,class:"mypage-btn"
     .mypage-main-list
-      - if @selling_id != []
-        - @selling_id.limit(3).each do |item| 
+      - if @selling_items != []
+        - @selling_items.limit(3).each do |item| 
           - if item.seller_id == current_user.id
             = link_to item_path(item.id) ,  class: "mypage-main-list__products--data" do
               .dataImage
@@ -30,8 +30,8 @@
     .mypage-main-moreBtn
       = link_to "もっと見る >", index_buyer_page_user_path ,class:"mypage-btn"
     .mypage-main-list
-      - if @buying_id != []
-        - @buying_id.limit(3).each do |item| 
+      - if @buying_items != []
+        - @buying_items.limit(3).each do |item| 
           - if item.buyer_id == current_user.id
             = link_to item_path(item.id) ,  class: "mypage-main-list__products--data" do
               .dataImage
