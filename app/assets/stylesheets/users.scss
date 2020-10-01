@@ -1,3 +1,21 @@
-// Place all the styles related to the users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.nav ul {
+  list-style: none;
+}
+
+li{
+  border-top: 10px solid #fff;
+}
+
+.l-conteiner{
+  height:100%;
+  margin: 40px auto 0;
+  padding-bottom: 40px;
+  width: 1020px;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: block;
+} 

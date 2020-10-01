@@ -37,4 +37,10 @@ Rails.application.routes.draw do
       get 'get_category_grandchildren', defaults: { format: 'json' }
     end
   end
+  resources :users do
+    member do
+      get 'index_seller_page'
+      get 'index_buyer_page'
+    end
+  end
 end
