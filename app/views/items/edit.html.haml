@@ -37,7 +37,7 @@
               .hidden-content
                 = f.fields_for :images do |j|
                   = j.file_field :image, class: "hidden-field"
-                  = j.check_box:_destroy, class: "hidden-checkbox"
+                  = j.check_box :_destroy, class: "hidden-checkbox"
                 -if @image_size != 5
                   - (@image_size..4).each do |k|
                     %input{class:"hidden-field", type: "file", name: "item[images_attributes][#{k}][image]", id: "item_images_attributes_#{k}_image"}
