@@ -2,7 +2,7 @@ require 'rails_helper'
 describe DeliverAddress do
   describe '#create' do
 
-    it "family_name_kanji、first_name_kanji、family_name_kana、first_name_kana、postal_code、prefecture、city、address1が存在すれば登録できること" do
+    it "family_name_kanji、first_name_kanji、family_name_kana、first_name_kana、postal_code、prefecture、city、address1、telephoneが存在すれば登録できること" do
       user = build(:deliver_address)
       expect(user).to be_valid
     end
