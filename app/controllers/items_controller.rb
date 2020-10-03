@@ -4,6 +4,7 @@ class ItemsController < ApplicationController
   before_action :set_api_key, only:[:buy_check_page, :pay]
   before_action :set_card_table_id, only:[:buy_check_page, :pay]
   before_action :set_item, only:[:destroy,:edit,:update]
+  before_action :set_image_category, only:[:edit, :update]
   before_action :set_category_parent_array, only: [:new, :create, :edit, :update]
   
   def index
@@ -44,35 +45,27 @@ class ItemsController < ApplicationController
 
   
   def edit
-    @item = Item.find(params[:id])
-    @parents = Category.where(ancestry:nil)
-    @parent_id = Category.find(@item.category_id).parent.parent.id
-    @child_id = Category.find(@item.category_id).parent.id
-    @grandchild_id = Category.find(@item.category_id).id
-    children = Category.find(@item.category_id).parent.siblings
-    grandchildren = Category.find(@item.category_id).siblings
-    @category_child_array = []
-    @category_grandchild_array = []
-    children.each do |child|
-      @category_child_name_id = [child.name, child.id]
-      @category_child_array << @category_child_name_id
-    end
-    grandchildren.each do |grandchild|
-      @category_grandchild_name_id = [grandchild.name, grandchild.id]
-      @category_grandchild_array << @category_grandchild_name_id
-    end
-    @image = Image.where(item_id:params[:id])
+
   end
 
   def update
-    @item.update(item_params)
-    if @item.update
-      redirect_to root_path
-    else
+    if item_params[:images_attributes].nil?
+      flash.now[:alert] = '更新できませんでした。出品画像をアップロードしてください。'
       render :edit
+    else
+      if @item.update(item_params)
+        redirect_to  update_done_items_path
+      else
+        flash.now[:alert] = '更新できませんでした'
+        render action: :edit
+      end
     end
   end
 
+  def update_done
+    @item_update = Item.order("updated_at DESC").first
+  end
+  
   def index_more_new_page
     @items = Item.includes(:images).order("created_at DESC").page(params[:page]).per(12)
   end
@@ -138,6 +131,27 @@ class ItemsController < ApplicationController
       @category_parent_name_id = [parent.name, parent.id]
       @category_parent_array << @category_parent_name_id
     end
+  end
+
+  def set_image_category
+    @parents = Category.where(ancestry:nil)
+    @parent_id = Category.find(@item.category_id).parent.parent.id
+    @child_id = Category.find(@item.category_id).parent.id
+    @grandchild_id = Category.find(@item.category_id).id
+    children = Category.find(@item.category_id).parent.siblings
+    grandchildren = Category.find(@item.category_id).siblings
+    @category_child_array = []
+    @category_grandchild_array = []
+    children.each do |child|
+      @category_child_name_id = [child.name, child.id]
+      @category_child_array << @category_child_name_id
+    end
+    grandchildren.each do |grandchild|
+      @category_grandchild_name_id = [grandchild.name, grandchild.id]
+      @category_grandchild_array << @category_grandchild_name_id
+    end
+    @image = Image.where(item_id:params[:id])
+    @image_size = @image.size
   end
 
 end

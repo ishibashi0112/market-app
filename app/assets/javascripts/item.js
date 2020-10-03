@@ -18,6 +18,24 @@
                   </div>`
       return html;
     }
+    //出品商品編集時のアクション
+    //items/:id/editページリンクした時のアクション--
+    if (window.location.href.match(/\/items\/\d+\/edit/)){
+      var prevContent = $('.label-content').prev();
+      labelWidth = (620 - $(prevContent).css('width').replace(/[^0-9]/g, ''));
+      $('.label-content').css('width', labelWidth);
+      $('.preview-box').each(function(index, box){
+        $(box).attr('id', `preview-box__${index}`);
+      })
+      $('.delete-box').each(function(index, box){
+        $(box).attr('id', `delete_btn_${index}`);
+      })
+      var count = $('.preview-box').length;
+      if (count == 5) {
+        $('.label-content').hide();
+      }
+    }
+    //--(items/:id/editページリンクした時のアクション)
 
     // ラベルのwidth操作
     function setLabel() {
@@ -57,6 +75,10 @@
         if (count == 5) { 
           $('.label-content').hide();
         }
+        //出品商品編集時、プレビュー削除したフィールドにdestroy用のチェックボックスがあった場合、チェックを外す
+        if ($(`#item_images_attributes_${id}__destroy`)){
+          $(`#item_images_attributes_${id}__destroy`).prop('checked',false);
+        }
 
         //ラベルのwidth操作
         setLabel();
@@ -76,9 +98,11 @@
       var id = $(this).attr('id').replace(/[^0-9]/g, '');
       //取得したidに該当するプレビューを削除
       $(`#preview-box__${id}`).remove();
+
+      //新規投稿時の処理
+      if ($(`#item_images_attributes_${id}__destroy`).length == 0) {
       //フォームの中身を削除 
       $(`#item_images_attributes_${id}_image`).val("");
-
       //削除時のラベル操作
       var count = $('.preview-box').length;
       //5個めが消されたらラベルを表示
@@ -86,10 +110,20 @@
         $('.label-content').show();
       }
       setLabel(count);
-
       if(id < 5){
         //削除された際に、空っぽになったfile_fieldをもう一度入力可能にする
         $('.label-box').attr({id: `label-box--${id}`,for: `item_images_attributes_${id}_image`});
+      }
+      } else {
+        //出品商品編集時
+        $(`#item_images_attributes_${id}__destroy`).prop('checked',true);
+        if (count == 4) {
+          $('.label-content').show();
+        }
+        setLabel();
+        if(id < 5){
+          $('.label-box').attr({id: `label-box--${id}`,for: `item_images_attributes_${id}_image`});
+        }
       }
     });
   });

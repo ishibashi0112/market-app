@@ -32,15 +32,16 @@
                         %span
                           削除
               .label-content
-                %label{for: "item_images_attributes_0_image", class: "label-box", id: "label-box--0"}
+                %label{for: "item_images_attributes_#{@image_size}_image", class: "label-box", id: "label-box--#{@image_size}"}
                   %pre.label-box__text-visible クリックしてファイルをアップロード
               .hidden-content
-                = f.fields_for :images do |i|
-                  = i.file_field :image, class: "hidden-field"
-                  %input{class:"hidden-field", type: "file", name: "item[images_attributes][1][image]", id: "item_images_attributes_1_image" }
-                  %input{class:"hidden-field", type: "file", name: "item[images_attributes][2][image]", id: "item_images_attributes_2_image" }
-                  %input{class:"hidden-field", type: "file", name: "item[images_attributes][3][image]", id: "item_images_attributes_3_image" }
-                  %input{class:"hidden-field", type: "file", name: "item[images_attributes][4][image]", id: "item_images_attributes_4_image" }
+                = f.fields_for :images do |j|
+                  = j.file_field :image, class: "hidden-field"
+                  = j.check_box:_destroy, class: "hidden-checkbox"
+                -if @image_size != 5
+                  - (@image_size..4).each do |k|
+                    %input{class:"hidden-field", type: "file", name: "item[images_attributes][#{k}][image]", id: "item_images_attributes_#{k}_image"}
+
         .name_box
           .name_box_label
             .name_box_label_name
@@ -180,7 +181,7 @@
         また、出品をもちまして 加盟店規約 に同意したことになります。
       = f.hidden_field :buy_status , value: 0
       .submit_btn
-        =f.submit '出品する',class:'sub_btn'
+        =f.submit '変更する',class:'sub_btn'
       .return_btn
         =link_to "もどる", root_path,class: 'r-btn'
   .footer
