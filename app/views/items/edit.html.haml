@@ -81,8 +81,8 @@
                   -child.children.each do |grandchild|
                     -if @item.category_id == grandchild.id
                       = f.select :category_id, @category_parent_array,{selected: @parent_id}, {required: true, class: 'category'}
-                      = f.select :category_id, @category_child_array,{selected: @child_id}, {required: true, class: 'category'}
-                      = f.select :category_id, @category_grandchild_array,{selected: @grandchild_id}, {required: true, class: 'category'}
+                      = f.select :category_id, @category_child_array,{selected: @child_id}, {required: true, class: 'category', id: 'child_category'}
+                      = f.select :category_id, @category_grandchild_array,{selected: @grandchild_id}, {required: true, class: 'category', id: 'grandchild_category'}
           .item_condition_box
             .item_condition_box_label
               .item_condition_box_label_name
