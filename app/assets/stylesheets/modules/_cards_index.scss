@@ -11,7 +11,7 @@
 
 .cardList{
   max-width: 600px;
-  height: 100vh;
+  height: 100%;
   margin: 0 auto;
   &__data{
     width: 100%;
@@ -52,7 +52,7 @@
     }
   }
   &__links--cardChange{
-    margin: 30px 0 100px 0;
+    margin: 30px 0 50px 0;
     text-align: center;
     #default_card_submitBtn{
       cursor: pointer;
@@ -71,11 +71,20 @@
 }
 
 .cardListReturnLink{
+  width: 250px;
   margin: 0 auto;
   max-width: 600px;
   text-align: center;
+  margin-top: 50px;
+  margin-bottom: 100px;
+  
   a{
     text-decoration: none;
+    color: white;
+    font-weight: bold;
+    background-color: rgb(151, 52, 52);
+    border-radius: 5px;
+    padding:15px 40px;
   }
 }
 

@@ -24,6 +24,43 @@
       p {
         text-align: center;
       }
+      .btn-default {
+        width: 100%;
+        font-size: 14px;
+        cursor: pointer;
+        text-align: center;
+        margin-bottom: 5px;
+        &--facebook {
+          border: 1px solid #385185;
+          border-radius: 4px;
+        }
+        &--google {
+          border: 1px solid #979797;
+          border-radius: 4px;
+        }
+      }
+      .fa-facebook-square {
+        margin: 0 auto;
+        background-color: #385185;
+        color: #fff;
+        width: 100%;
+        line-height: 38px;
+      }
+      .fa-google {
+        margin: 0 auto;
+        background-color: #fff;
+        width: 100%;
+        line-height: 38px;
+        color: black;
+        border-radius: 4px;
+      }
+      .fa-google:before {
+        color: red;
+      }
+      a {
+        text-decoration: none;
+      }
+
       &--label {
         height: 24px;
         .label{
@@ -64,6 +101,7 @@
       margin: 0 auto;
       margin-top: 50px;
       text-align: center;
+      display: block;
       &--red {
         width: 200px;
         height: 50px;
@@ -74,6 +112,43 @@
         line-height: 50px;
         display: block;
         margin: 0 auto;
+        border-radius: 4px;
+      }
+      a {
+        text-decoration: none;
+      }
+      &--facebook {
+        width: 200px;
+        background-color: #385185;
+        border: 1px solid;
+        margin: 0 auto;
+        color: #FFFFFF;
+        border-radius: 4px;
+      }
+      &--google {
+        margin: 0 auto;
+        width: 200px;
+        background-color: #fff;
+        border: 1px solid  #979797;
+        border-radius: 4px;
+      }
+      .fa-facebook-square {
+        margin: 0 auto;
+        background-color: #385185;
+        color: #fff;
+        width: 100%;
+        line-height: 50px;
+        border-radius: 4px;
+        font-size: 14px;
+      }
+      .fa-google {
+        margin: 0 auto;
+        background-color: #fff;
+        width: 100%;
+        border-radius: 4px;
+        line-height: 50px;
+        color: black;
+        font-size: 14px;
       }
       &--bluegreen {
         width: 200px;

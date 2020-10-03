@@ -7,5 +7,5 @@
 
 -# マイページ、もしくは削除後のindex遷都以外の場合はもどるを表示
 .cardListReturnLink
-  - if @back_url != "/cards" && @back_url != "/users/#{current_user.id}" 
-    = link_to "もどる", @back_url
+  - if @back_url != "/cards" && @back_url != "/users/#{current_user.id}" && @back_url != "/cards/new"
+    = link_to "購入確認画面へもどる", @back_url
