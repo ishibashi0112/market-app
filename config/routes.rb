@@ -35,6 +35,7 @@ Rails.application.routes.draw do
       get 'done_page'
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
+      get 'update_done'
     end
   end
   resources :users do

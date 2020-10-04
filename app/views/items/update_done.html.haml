@@ -1,0 +1,14 @@
+= render 'items/header_sub'
+.userMain
+  .userForm
+    .userForm__header
+      %h1
+        商品情報変更完了
+    .userForm__group
+      %p
+        商品情報を変更しました
+      .userForm__btn
+        = link_to 'トップページへ戻る', root_path, class: "userForm__btn--bluegreen"
+        = link_to '更新した商品を確認する', item_path(@item_update), class: "userForm__btn--bluegreen"
+        = link_to '出品中の商品一覧を見る', users_path, class: "userForm__btn--bluegreen"
+= render 'items/footer_sub'
