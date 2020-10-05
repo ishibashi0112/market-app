@@ -1,2 +1,9 @@
-%h1 購入が完了しました
-=link_to 'トップページに戻る' , root_path
+= render 'items/header'
+
+.buyDonepage
+  .buyDonepage__icon
+    = icon("fa", "check-circle",{aria:{hidden: :true}})
+  .buyDonepage__title
+    %h1 購入が完了しました
+  .buyDonepage__changeLink
+    = link_to 'トップページに戻る' , root_path

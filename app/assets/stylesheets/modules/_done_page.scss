@@ -1,0 +1,42 @@
+.buyDonepage{
+  padding-top: 100px;
+  width: 600px;
+  height: 500px;
+  margin: 0 auto;
+  .buyDonepage__icon{
+    height: 100px;
+    width: 300px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    i{
+      font-size: 100px;
+    }
+  }
+  .buyDonepage__title{
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    h1{
+      font-size: 40px;
+      font-weight: bold;
+    }
+  }
+  .buyDonepage__changeLink{
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    a{
+      padding: 18px 80px;
+      background-color: rgb(233, 41, 41);
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      height: 50px;
+      font-weight: bold;
+    }
+  }
+}
