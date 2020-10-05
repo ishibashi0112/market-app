@@ -10,7 +10,7 @@ FactoryBot.define do
     city                           {"世田谷区"}
     address1                       {"00000"}
     address2                       {"11"}
-    telephone                      {"090-1234-5678"}
+    telephone                      {"09012345678"}
   end
 
 end

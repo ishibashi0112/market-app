@@ -1,0 +1,24 @@
+.l-side
+  %p.breadcrumb
+    トップページ > マイページ >
+    = current_user.nickname
+  %nav.mypage-nav
+    %ul.mypage-nav-list
+      %li
+        = link_to "商品を出品する",new_item_path,class:"mypage-nav-list-item"
+      %li
+        = link_to "お気に入りの商品",root_path,class:"mypage-nav-list-item"  
+      %h3.mypage-nav-head
+        設定
+      %li
+        = link_to "ニックネーム・メールアドレスの変更",root_path,class:"mypage-nav-list-item"    
+      %li
+        = link_to "登録名の変更",root_path,class:"mypage-nav-list-item"  
+      %li
+        = link_to " 発送元・お届け先住所の変更",root_path,class:"mypage-nav-list-item"
+      %li
+        = link_to "ログアウト" , destroy_user_session_path, method: :delete,class:"mypage-nav-list-item", data: {confirm: "ログアウトしますか？"}
+      %li
+        = link_to 'お支払い方法・クレジットカード情報登録・確認・削除', cards_path,class:"mypage-nav-list-item"
+      %li
+        = link_to"トップページ" ,root_path, class:"mypage-nav-list-item"

@@ -27,7 +27,7 @@ $(function(){
     $('#grandchild_category').remove();
     if (parentCategory != "選択してください"){ //親カテゴリーが初期値でないことを確認
       $.ajax({
-        url: 'get_category_children',
+        url: '/items/get_category_children',
         type: 'GET',
         data: { parent_id: parentCategory },
         dataType: 'json'
@@ -53,7 +53,7 @@ $(function(){
     $('#grandchild_category').remove(); //子が変更された時、孫以下を削除するする
     if (childId != "選択してください"){ //子カテゴリーが初期値でないことを確認
       $.ajax({
-        url: 'get_category_grandchildren',
+        url: '/items/get_category_grandchildren',
         type: 'GET',
         data: { child_id: childId },
         dataType: 'json'

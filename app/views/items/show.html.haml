@@ -5,7 +5,6 @@
     .main_contents
       .main_contents_name
         = @item.name
-        = link_to  "購入する", buy_check_page_item_path
       .main_contents_check
         - if user_signed_in? && @item.seller_id == current_user.id
           .item_edit
