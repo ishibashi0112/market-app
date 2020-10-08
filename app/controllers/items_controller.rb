@@ -139,9 +139,9 @@ class ItemsController < ApplicationController
 
   def set_image_category
     @parents = Category.where(ancestry:nil)
-    @parent_id = Category.find(@item.category_id).parent.parent.id
-    @child_id = Category.find(@item.category_id).parent.id
-    @grandchild_id = Category.find(@item.category_id).id
+    # @parent_id = Category.find(@item.category_id).ancestor_ids
+    # @child_id = Category.find(@item.category_id).parent.id
+    # @grandchild_id = Category.find(@item.category_id).id
     children = Category.find(@item.category_id).parent.siblings
     grandchildren = Category.find(@item.category_id).siblings
     @category_child_array = []
