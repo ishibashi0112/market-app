@@ -37,6 +37,8 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    @id = @item.buyer_id
+    @user = User.find_by(@id)
     @parents = Category.where(ancestry:nil)
     # impressionist(@item)
     # , nil, :unique => [:session_hash]

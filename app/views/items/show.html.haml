@@ -13,7 +13,6 @@
             = link_to "削除", "/items/#{@item.id}" , method: :delete , data: {confirm: "商品を削除しますか？"}
         - else
           .none
-            別ユーザーの出品
       .main_contents_image
         - if @item.buy_status == 1
           .ItemDetail__data--image
@@ -38,7 +37,6 @@
                 = link_to "購入画面に進む", buy_check_page_item_path, class:'buy_btn'
             - else
               .no
-                自分の出品
       .main_contents_price
         .main_contents_price_en
           ¥
@@ -55,7 +53,7 @@
           .main_contents_label_top
             出品者
           .main_contents_info_top
-            = @item.name
+            = @user.nickname
         .main_contents_info_box_categoly
           .main_contents_label
             カテゴリー
@@ -105,7 +103,6 @@
       .sub_contents_siren
         通報
     .comment_box
-      コメントボックス仮置き
     .bottom_comments
       - if @item.previous.present? && @item.next.present?
         .select_box
