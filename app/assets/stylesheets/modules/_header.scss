@@ -6,23 +6,23 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    &__mainIcon{     
+    &__mainIcon{
       margin-right: 40px;
     }
     &__search{
-      width: 800px;   
-      form.formArea{       
+      width: 800px;
+      form.formArea{
+        position: relative;
         height: 35px;
         input[type="text"]{
         width: 70%;
         height: 35px;
         }
-      }  
+      }
       .searchBtnImage{
         background-color: $greenColor;
         padding: 5px;
         position: absolute;
-        top: 28px;
       }
     }
   }
