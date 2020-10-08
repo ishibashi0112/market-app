@@ -8,6 +8,7 @@ $(function(){
   function appendChidrenBox(insertHTML){
     var childSelectHtml = '';
     childSelectHtml =  `<select id="child_category", class="category", name="item[category_id]">
+                          <option value="">選択してください</option>
                           ${insertHTML}
                         </select>`;
     $('#category_area').append(childSelectHtml);
@@ -16,6 +17,7 @@ $(function(){
   function appendGrandchidrenBox(insertHTML){
     var grandchildSelectHtml = '';
     grandchildSelectHtml = `<select id="grandchild_category", class="category" name="item[category_id]">
+                              <option value="">選択してください</option>
                               ${insertHTML}
                             </select>`;
     $('#category_area').append(grandchildSelectHtml);
