@@ -37,7 +37,7 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-    @id = @item.buyer_id
+    @id = @item.seller_id
     @user = User.find_by(@id)
     @parents = Category.where(ancestry:nil)
     # impressionist(@item)
